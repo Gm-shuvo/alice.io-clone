@@ -47,6 +47,10 @@ h3 {
   font-weight: 400;
 }
 
+.font-feature-ss09 {
+  font-feature-settings: "ss09";
+}
+
 @layer components {
   .btn-primary {
     @apply bg-medium-green text-bright-grey border border-black shadow-[3px_3px_0_0_#0d0d0d] px-[3.375rem] py-[0.5rem] uppercase tracking-[0.09em] font-medium transition-all duration-300;
@@ -58,5 +62,23 @@ h3 {
 
   .container-large {
     @apply max-w-[85.5rem] mx-auto w-full px-[2.5rem];
+  }
+
+  .text-style-italic {
+    font-feature-settings: "ss09";
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .stroke-shadow {
+    box-shadow: 6px 6px 0 0 #0d0d0d;
+  }
+
+  .card_item {
+    @apply bg-white border border-[#0d0d0d] p-10 flex flex-col h-full transition-all duration-300;
+  }
+
+  .card_icon {
+    @apply w-20 h-20 mb-8;
   }
 }
