@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-beige: #f6f0e9;
+  --color-bg-black: #1e1e1e;
+  --color-blue-black: #03041d;
+  --color-bright-grey: #f7f5f1;
+  --color-light-grey: #f0ebe3;
+  --color-medium-grey: #bdbbb8;
+  --color-dark-grey: #6e6d6b;
+  --color-medium-pink: #b6276b;
+  --color-pink: #e686b4;
+  --color-medium-green: #108496;
+
+  --font-romie: "Playfair Display", serif;
+  --font-haas: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  --beige: #f6f0e9;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+  background-color: var(--beige);
+  color: #0d0d0d;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-medium-green text-bright-grey border border-black shadow-[3px_3px_0_0_#0d0d0d] px-[3.375rem] py-[0.5rem] uppercase tracking-[0.09em] font-medium transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#0d6a78] shadow-[1px_1px_0_0_#0d0d0d];
+  }
+
+  .container-large {
+    @apply max-w-[85.5rem] mx-auto w-full px-[2.5rem];
+  }
+}
