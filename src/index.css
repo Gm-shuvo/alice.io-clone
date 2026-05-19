@@ -1,4 +1,6 @@
+@import url("https://fonts.cdnfonts.com/css/romie-trial");
 @import "tailwindcss";
+
 
 @theme {
   --color-beige: #f6f0e9;
@@ -22,6 +24,7 @@
     from {
       transform: translateX(0);
     }
+
     to {
       transform: translateX(-50%);
     }
@@ -40,11 +43,19 @@ html {
 }
 
 h1,
-h2,
 h3 {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-weight: 400;
+}
+
+h2 {
+  font-family: "Romie Trial", "Times New Roman", sans-serif;
+  font-size: 2.8125rem;
+  line-height: 1.15em;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0;
 }
 
 .font-feature-ss09 {
@@ -70,15 +81,52 @@ h3 {
     font-weight: 500;
   }
 
-  .stroke-shadow {
+  .stroke-shadow:hover {
     box-shadow: 6px 6px 0 0 #0d0d0d;
   }
 
+
+
   .card_item {
-    @apply bg-white border border-[#0d0d0d] p-10 flex flex-col h-full transition-all duration-300;
+    @apply hover:border hover:border-[#0d0d0d] hover:bg-white p-10 flex flex-col cursor-pointer h-full transition-all duration-300;
   }
 
   .card_icon {
     @apply w-20 h-20 mb-8;
   }
+
+  .acountable_bg-line {
+    z-index: 1;
+    pointer-events: none;
+    width: 100%;
+    height: 6.75rem;
+    margin-top: -3.5rem;
+    position: relative;
+  }
+
+  .w-embed:before,
+  .w-embed:after {
+    content: " ";
+    grid-area: 1/1/2/2;
+    display: table
+  }
+
+  .w-embed:after {
+    clear: both
+  }
+
+  .eyes._01 {
+    top: 3rem;
+    left: 4.875rem;
+  }
+
+  .eyes {
+    width: 3.375rem;
+    display: flex;
+    position: absolute;
+    inset: 0% auto auto 0%;
+    transform: rotate(-15deg);
+  }
+
+
 }
