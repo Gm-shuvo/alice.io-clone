@@ -1,140 +1,307 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const testimonials = [
     {
-      quote: "Alice has significantly impacted our iteration speed and confidence in our evaluations and mitigations. It has enabled us to develop a faster evaluation suite, allowing us to release models more quickly and safely.",
-      author: "Seraphina Goldfarb-Tarrant",
-      title: "Head of AI Safety | Cohere"
+      text: "Alice has significantly impacted our iteration speed and confidence in our evaluations and mitigations. It has enabled us to develop a faster evaluation suite, allowing us to release models more quickly and safely.",
+      name: "Seraphina Goldfarb-Tarrant",
+      title: "Head of AI Safety | Cohere",
     },
     {
-      quote: "Alice has been a great partner to work with & I look forward to delivering next editions of Nova models. Their expertise in safety and alignment has been invaluable.",
-      author: "Rahul Gupta",
-      title: "Senior Manager, Responsible AI | Amazon AGI"
+      text: "Alice has been a great partner to work with & I look forward to delivering next editions of Nova models to delight customers, while raising the bar on safety.",
+      name: "Rahul Gupta",
+      title: "Senior Manager, Responsible AI | Amazon AGI",
     },
     {
-      quote: "Alice is the only vendor I've seen that does this type of extremely high quality safety work. They truly understand the depth of adversarial research.",
-      author: "Head of Safety",
-      title: "Leading LLM"
-    }
+      text: "Alice is the only vendor I've seen that does this type of extremely high quality safety work based in a deep understanding of threat actors across violation types.",
+      name: "Head of Safety",
+      title: "Leading LLM",
+    },
   ];
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      // Calculate move offset (subtle)
-      const x = (clientX - innerWidth / 2) / 50;
-      const y = (clientY - innerHeight / 2) / 50;
-      setMousePos({ x, y });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  const cards = [
+    {
+      lottie:
+        "https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695a5c4729166e3fc1083b7a_3544bf8016c478364747bde5ab4b7bff_card.lottie",
+      title: (
+        <>
+          Epic, Real-World
+          <br />
+          Adversarial Intelligence
+        </>
+      ),
+      desc: `Our solutions outperform industry benchmarks because they're
+      powered by data drawn from a decade of real-world adversarial
+      research...`,
+    },
+    {
+      lottie:
+        "https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695a5c47b48a893c5b9e1edc_49a41b2a29e4882a55a00d0f75bd8c67_door.lottie",
+      title: (
+        <>
+          The Rabbit Hole
+          <br />
+          Data Moat
+        </>
+      ),
+      desc: `With billions of continually updated toxic examples, we train
+      sharper classifiers and fuel stronger red-teaming...`,
+    },
+    {
+      lottie:
+        "https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695a5c471a2c4314249d723f_582ff493e6e7f37f0fc4aede46c11fdd_key.lottie",
+      title: (
+        <>
+          Adaptive, Customizable
+          <br />
+          Policy Alignment
+        </>
+      ),
+      desc: `Keep your policies front and center, tuning coverage to your
+      regulatory needs and risk tolerance...`,
+    },
+  ];
 
+  // Auto slide
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(interval);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
   }, [testimonials.length]);
 
-  const bgStyle = (factor) => ({
-    willChange: 'transform',
-    transform: `translate3d(${mousePos.x * factor}px, ${mousePos.y * factor}px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
-    transformStyle: 'preserve-3d',
-    zIndex: 1,
-    width: '100%',
-    height: '100%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'block',
-    position: 'absolute',
-    inset: '0%',
-  });
+  // Mouse move effect
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+
+    const x = (clientX / window.innerWidth - 0.5) * 2;
+    const y = (clientY / window.innerHeight - 0.5) * 2;
+
+    setMousePosition({ x, y });
+  };
 
   return (
-    <section className="bg-beige pt-40 pb-40 overflow-hidden relative min-h-[700px] max-w-[85.5rem] mx-auto w-full px-[2.5rem] flex items-center">
-      {/* Testimonials Background Images with Parallax */}
-      <img 
-        src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff45bee8a26c6bd6d3d_e1166c82f455d41a0e2aec102825fbd1_rare.svg" 
-        alt="" 
-        className="teastimonials_bg-image is-rare pointer-events-none opacity-80"
-        style={{ ...bgStyle(0.5), maxWidth: '80rem' }}
-      />
-      <img 
-        src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff4328dc47fb8108837_82cf7d7d0d47934de81015a25868dd9b_middle.svg" 
-        alt="" 
-        className="teastimonials_bg-image pointer-events-none"
-        style={bgStyle(1)}
-      />
-      <img 
-        src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff4334c013e46320b38_09fe41fa7b20fe7ce83ba0879367c84c_front.svg" 
-        alt="" 
-        className="teastimonials_bg-image pointer-events-none"
-        style={bgStyle(1.5)}
-      />
+    <>
+      {/* ==================== Testimonials Section ==================== */}
+      <section
+        className="relative section-testimonials overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
+        <div className="padding-global padding-section-huge">
+          <div className="container-small">
+            <div className="testimonials_component">
+              <div
+                className="testimonials_slider w-slider"
+                role="region"
+                aria-label="carousel"
+              >
+                {/* SLIDER MASK */}
+                <div
+                  className="testimonials_slider-mask w-slider-mask"
+                  id="w-slider-mask-0"
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {testimonials.map((t, index) => {
+                    const isActive = index === currentSlide;
 
-      <div className="container-large relative z-10 w-full">
-        <div className="max-w-[1000px] mx-auto text-center border-y border-medium-grey py-24 px-8 relative">
-          {testimonials.map((t, idx) => (
-            <div 
-              key={idx}
-              className={`transition-all duration-700 absolute inset-0 flex flex-col justify-center items-center py-20 px-8 ${idx === activeIndex ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none'}`}
-            >
-              <blockquote className="text-[1.875rem] md:text-[2.25rem] font-romie italic leading-[1.2] mb-10 opacity-90 px-4 md:px-12">
-                "{t.quote}"
-              </blockquote>
-              <div className="flex flex-col items-center">
-                <span className="font-bold text-[1.125rem] mb-1">{t.author}</span>
-                <span className="text-[0.875rem] opacity-60 uppercase tracking-widest">{t.title}</span>
+                    return (
+                      <div
+                        key={index}
+                        className={`testimonials_slide w-slide ${
+                          isActive ? "w--current" : ""
+                        }`}
+                        style={{
+                          transition: "all 500ms ease",
+                          opacity: isActive ? 1 : 0,
+                          transform: `translateX(${
+                            (index - currentSlide) * 100
+                          }%)`,
+                          position: isActive ? "relative" : "absolute",
+                          inset: 0,
+                          width: "100%",
+                        }}
+                      >
+                        <div className="testimonials_slide-inner">
+                          <p className="testimonials_text">"{t.text}"</p>
+
+                          <div className="testimonials_author">
+                            <div className="text-weight-medium">
+                              {t.name}
+                            </div>
+
+                            <div>{t.title}</div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Navigation */}
+                <div className="flex items-center justify-center gap-8 mt-5">
+                  {/* LEFT */}
+                  <button
+                    onClick={() =>
+                      setCurrentSlide(
+                        (prev) =>
+                          (prev - 1 + testimonials.length) %
+                          testimonials.length
+                      )
+                    }
+                    className="size-4 flex items-center justify-center text-[#6E6D6B] hover:text-gray-900 transition-colors cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M6.656 6.032C6.656 6.032 6.43733 6.23467 6 6.64L5.664 6.944C5.952 6.93333 6.41067 6.928 7.04 6.928H13.296V9.04H7.04C6.42133 9.04 5.96267 9.03467 5.664 9.024C5.80267 9.14133 6.14933 9.47733 6.704 10.032L8.64 12.016H5.76L2 8.016L5.76 4H8.64L6.656 6.032Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* DOTS */}
+                  <div className="flex items-center gap-3">
+                    {testimonials.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentSlide(i)}
+                        className={`size-2 rounded-full transition-all duration-300 ${
+                          i === currentSlide
+                            ? "bg-[#6E6D6B] scale-125"
+                            : "bg-gray-300 hover:bg-gray-400"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* RIGHT */}
+                  <button
+                    onClick={() =>
+                      setCurrentSlide(
+                        (prev) => (prev + 1) % testimonials.length
+                      )
+                    }
+                    className="size-4 flex items-center justify-center text-[#6E6D6B] hover:text-gray-900 transition-colors cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.64 9.984C8.64 9.984 8.85867 9.78133 9.296 9.376L9.632 9.072C9.344 9.08267 8.88533 9.088 8.256 9.088H2V6.976H8.256C8.87467 6.976 9.33333 6.98133 9.632 6.992C9.49333 6.87467 9.14667 6.53867 8.592 5.984L6.656 4H9.536L13.296 8L9.536 12.016H6.656L8.64 9.984Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          ))}
-          
-          {/* Reserve space because of absolute positioning */}
-          <div className="invisible py-24 px-8 opacity-0">
-            <blockquote className="text-[2.25rem] font-romie italic leading-tight mb-10 px-12">
-              "{testimonials[0].quote}"
-            </blockquote>
-            <div className="flex flex-col items-center">
-              <span className="font-bold text-[1.125rem] mb-1">X</span>
-              <span className="text-[0.875rem] uppercase tracking-widest">Y</span>
+          </div>
+        </div>
+
+        {/* Background Images */}
+        <img
+          loading="lazy"
+          src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff4328dc47fb8108837_82cf7d7d0d47934de81015a25868dd9b_middle.svg"
+          alt=""
+          className="teastimonials_bg-image is-middle"
+          style={{
+            willChange: "transform",
+            transition: "transform 0.2s ease-out",
+            transform: `translate3d(${
+              mousePosition.x * -8
+            }px, ${mousePosition.y * -8}px, 0px)`,
+            transformStyle: "preserve-3d",
+          }}
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff4334c013e46320b38_09fe41fa7b20fe7ce83ba0879367c84c_front.svg"
+          alt=""
+          className="teastimonials_bg-image is-front"
+          style={{
+            willChange: "transform",
+            transition: "transform 0.2s ease-out",
+            transform: `translate3d(${
+              mousePosition.x * -16
+            }px, ${mousePosition.y * -16}px, 0px)`,
+            transformStyle: "preserve-3d",
+          }}
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695fcff45bee8a26c6bd6d3d_e1166c82f455d41a0e2aec102825fbd1_rare.svg"
+          alt=""
+          className="teastimonials_bg-image is-rare"
+          style={{
+            willChange: "transform",
+            transition: "transform 0.2s ease-out",
+            transform: `translate3d(${
+              mousePosition.x * -4
+            }px, ${mousePosition.y * -4}px, 0px)`,
+            transformStyle: "preserve-3d",
+          }}
+        />
+      </section>
+
+      {/* ==================== Cards Section ==================== */}
+      <div className="padding-global padding-section-medium">
+        <div className="container-large">
+          <div className="cards_component">
+            <div className="section_heading">
+              <h2 className="max-width-xxlarge">
+                From UGC to GenAI and humanoid robots, Alice allows you and your
+                users to{" "}
+                <span className="text-style-italic">
+                  advance unafraid.
+                </span>
+              </h2>
+            </div>
+
+            <div className="grid_3-col">
+              {cards.map((card, index) => (
+                <div key={index} className="card_item stroke-shadow">
+                  <div className="card_top">
+                    <DotLottiePlayer
+                      src={card.lottie}
+                      autoplay
+                      loop
+                      style={{ width: "80px", height: "80px" }}
+                    />
+
+                    <h4 className="hmp_shift">{card.title}</h4>
+                  </div>
+
+                  <div className="card_divider"></div>
+
+                  <p className="text-color-secondary hmp_shiftctt">
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-
-        {/* Carousel Controls - Updated to match screenshot */}
-        <div className="flex justify-center items-center gap-6 mt-16 font-haas text-[0.875rem]">
-          <button 
-            onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)} 
-            className="opacity-40 hover:opacity-100 transition-opacity text-xl font-bold"
-          >
-            ←
-          </button>
-          
-          <div className="flex gap-3">
-            {testimonials.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === activeIndex ? 'bg-dark-grey' : 'bg-medium-grey opacity-50'}`}
-              />
-            ))}
-          </div>
-
-          <button 
-            onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)} 
-            className="opacity-40 hover:opacity-100 transition-opacity text-xl font-bold"
-          >
-            →
-          </button>
-        </div>
       </div>
-    </section>
+    </>
   );
 };
 

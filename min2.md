@@ -1,4 +1,172 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: sans-serif
+}
 
+body {
+    margin: 0
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+    display: block
+}
+
+audio,canvas,progress,video {
+    vertical-align: baseline;
+    display: inline-block
+}
+
+audio:not([controls]) {
+    height: 0;
+    display: none
+}
+
+[hidden],template {
+    display: none
+}
+
+a {
+    background-color: #0000
+}
+
+a:active,a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,strong {
+    font-weight: 700
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    margin: .67em 0;
+    font-size: 2em
+}
+
+mark {
+    color: #000;
+    background: #ff0
+}
+
+small {
+    font-size: 80%
+}
+
+sub,sup {
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,kbd,pre,samp {
+    font-family: monospace;
+    font-size: 1em
+}
+
+button,input,optgroup,select,textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,select {
+    text-transform: none
+}
+
+button,html input[type=button],input[type=reset] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type=checkbox],input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type=search] {
+    -webkit-appearance: none
+}
+
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: 700
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,th {
+    padding: 0
+}
 
 @font-face {
     font-family: webflow-icons;
@@ -1023,6 +1191,7 @@ textarea.w-input,textarea.w-select {
     text-align: center;
     clear: both;
     -webkit-tap-highlight-color: #0000;
+    tap-highlight-color: #0000;
     background: #ddd;
     height: 300px;
     position: relative
@@ -1053,6 +1222,7 @@ textarea.w-input,textarea.w-select {
     z-index: 2;
     text-align: center;
     -webkit-tap-highlight-color: #0000;
+    tap-highlight-color: #0000;
     height: 40px;
     margin: auto;
     padding-top: 10px;
@@ -1116,6 +1286,7 @@ textarea.w-input,textarea.w-select {
     cursor: pointer;
     color: #fff;
     -webkit-tap-highlight-color: #0000;
+    tap-highlight-color: #0000;
     -webkit-user-select: none;
     user-select: none;
     width: 80px;
@@ -1729,6 +1900,7 @@ textarea.w-input,textarea.w-select {
     float: right;
     cursor: pointer;
     -webkit-tap-highlight-color: #0000;
+    tap-highlight-color: #0000;
     -webkit-user-select: none;
     user-select: none;
     padding: 18px;

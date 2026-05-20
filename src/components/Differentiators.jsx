@@ -25,46 +25,7 @@ const Differentiators = () => {
   ];
 
   return (
-    <section className="bg-beige pt-32 pb-20 overflow-hidden">
-      <div className="container mx-auto">
-        {/* Main Heading - Fixed to match screenshot */}
-        <div className="mb-20 flex items-center justify-center">
-          <h2 className="text-center max-w-6xl mx-auto">
-            From UGC to GenAI and humanoid robots, Alice allows you and your
-            users to{" "}
-            <span className="text-style-italic">advance unafraid.</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-          {items.map((item, idx) => (
-            <div
-              key={idx}
-              className={`card_item stroke-shadow group hover:z-10 transition-all duration-300 border border-black ${
-                idx !== 2 ? "md:border-r-0" : ""
-              }`}
-            >
-              <div className="card_top flex flex-col h-full">
-                <div className="card_icon mb-8">
-                  <DotLottiePlayer
-                    src={item.lottie}
-                    autoplay
-                    loop
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                </div>
-                <h4 className="text-[1.75rem] leading-[1.15] font-medium mb-6 pr-4">
-                  {item.title}
-                </h4>
-                <div className="w-full h-px bg-dark-grey/30 mb-8" />
-                <p className="text-[1.05rem] leading-[1.65] text-dark-grey font-haas mt-auto">
-                  {item.body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    <section className="acountable_bg-image is-top w-embed sm:pb-20">
 
       <InteractiveHero />
     </section>
