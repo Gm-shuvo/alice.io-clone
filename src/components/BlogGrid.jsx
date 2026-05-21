@@ -1,62 +1,199 @@
-import React from 'react';
+import React from "react";
 
 const BlogGrid = () => {
-  const posts = [
-    {
-      type: 'blog',
-      color: 'bg-[#ffd57a]',
-      date: 'May 13, 2026 · 3 min read',
-      title: "Introducing Guardrails Trained for Your Policies",
-      body: "Generic guardrails weren't built for your policies. WonderFence trains a custom detector for each one..."
-    },
-    {
-      type: 'podcast',
-      color: 'bg-[#8ad6cb]',
-      date: 'May 4, 2026',
-      title: "What Does It Actually Take to Build Unbiased AI?",
-      body: "Nobody told Tennisha Martin the importance of having a mentor, so she built a community of tens of thousands instead..."
-    },
-    {
-      type: 'webinar',
-      color: 'bg-[#108496] text-white',
-      date: 'Sep 25, 2025',
-      title: "Distilling LLMs into Efficient Transformers for Real-World AI",
-      body: "This technical webinar explores how we distilled the world knowledge of a large language model into a compact transformer..."
-    },
-    {
-      type: 'whitepaper',
-      color: 'bg-[#e686b4]',
-      date: 'Apr 27, 2026',
-      title: "Building AI Applications in Financial Services",
-      body: "A practical guide to building safe, compliant AI applications in financial services..."
-    }
-  ];
-
   return (
-    <section className="bg-beige pt-20 pb-20">
-      <div className="container-large">
-        <div className="mb-16">
-          <div className="font-mono text-[0.875rem] uppercase tracking-widest opacity-60 mb-2">Safe. Honest. Kind.</div>
-          <h2 className="text-[2.5rem] md:text-[3rem]">What's New from Alice</h2>
-        </div>
+    <div className="no-mobile">
+      <section className="section-new">
+        <div className="padding-section-medium">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="news-cards_wrapper relative">
+                <div className="absolute -right-2 -bottom-2 w-full h-[80%] border-black border border-t-0 border-l-0 pointer-events-none z-0" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {posts.map((post, idx) => (
-            <div key={idx} className="flex flex-col border border-black shadow-[3px_3px_0_0_#0d0d0d] bg-beige p-6 group hover:shadow-[1px_1px_0_0_#0d0d0d] transition-all">
-              <div className={`self-start px-2 py-1 ${post.color} rounded-[0.1875rem] font-mono text-[0.75rem] uppercase tracking-wider mb-6`}>
-                {post.type}
+                {/* Heading */}
+                <div className="text-align-center">
+                  <h2>
+                    What’s New from <span className="a-swoosh">A</span>
+                    <span className="text-style-italic">lice</span>
+                  </h2>
+                </div>
+
+                {/* News Cards */}
+                <div className="news_cards">
+                  {/* Card 1 - Blog */}
+                  <div
+                    className="card_item is-resource"
+                    data-wf--cms-card--variant="blog"
+                  >
+                    <a
+                      href="/blog/introducing-ai-guardrails-built-for-financial-services"
+                      className="card_item-link w-inline-block"
+                    >
+                      <div
+                        className="card_item-top"
+                        style={{ height: "252px" }}
+                      >
+                        <div className="card_item-asset">
+                          <img
+                            src="https://cdn.prod.website-files.com/690342d0de7772098a5575f1/6954fb2daa33b7a94c50224e_Guardrails.svg"
+                            loading="lazy"
+                            alt=""
+                            className="card_item-img-tag"
+                          />
+                        </div>
+                        <div className="card_item-top-head">
+                          <h3 className="card_item-title text-style-3lines">
+                            Introducing AI Guardrails Built for Financial
+                            Services
+                          </h3>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/blog/introducing-ai-guardrails-built-for-financial-services"
+                      className="card_item-link expand w-inline-block"
+                    >
+                      <div className="card_item-bottom">
+                        <div className="card_item-info_wrap">
+                          <div className="card_item-info">
+                            <div className="tag text-weight-medium">blog</div>
+                            <div className="card_item-event-date">
+                              <div className="card_item-date text-inline">
+                                May 20, 2026
+                              </div>
+                            </div>
+                            <p className="text-style-3lines">
+                              Generic AI guardrails weren't built for the
+                              regulatory bar financial services must clear. The
+                              FSI Detector Pack catches the advice, commitment,
+                              fraud, and data risks they miss...
+                            </p>
+                          </div>
+                        </div>
+                        <div className="button is-text">Learn More</div>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Card 2 - Podcast */}
+                  <div
+                    className="card_item is-resource"
+                    data-wf--cms-card--variant="podcast"
+                  >
+                    <a
+                      href="/podcast#latest-episode"
+                      className="card_item-link w-inline-block"
+                    >
+                      <div
+                        className="card_item-top"
+                        style={{ height: "252px" }}
+                      >
+                        <div className="card_item-asset">
+                          <img
+                            src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/69834a4a3c9c7bcf1c2abdaf_Podcast%20icon.svg"
+                            loading="lazy"
+                            alt=""
+                            className="card_item-img-tag"
+                          />
+                        </div>
+                        <div className="card_item-top-head">
+                          <h3 className="card_item-title text-style-3lines">
+                            The Problem With AI Observability Nobody Wants To
+                            Admit
+                          </h3>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/podcast#latest-episode"
+                      className="card_item-link expand w-inline-block"
+                    >
+                      <div className="card_item-bottom">
+                        <div className="card_item-info_wrap">
+                          <div className="card_item-info">
+                            <div className="tag text-weight-medium">
+                              podcast
+                            </div>
+                            <div className="card_item-event-date">
+                              <div className="card_item-date text-inline">
+                                May 19, 2026
+                              </div>
+                            </div>
+                            <p className="text-style-3lines">
+                              Most enterprises have guardrails. Far fewer have
+                              visibility into what their AI is actually doing...
+                            </p>
+                          </div>
+                        </div>
+                        <div className="button is-text">Listen Now</div>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Card 3 - Webinar */}
+                  <div
+                    className="card_item is-resource"
+                    data-wf--cms-card--variant="webinars"
+                  >
+                    <a
+                      href="/webinars/distilling-llms"
+                      className="card_item-link w-inline-block"
+                    >
+                      <div
+                        className="card_item-top"
+                        style={{ height: "252px" }}
+                      >
+                        <div className="card_item-asset">
+                          <img
+                            src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                            loading="lazy"
+                            alt=""
+                            className="card_item-img-tag"
+                          />
+                        </div>
+                        <div className="card_item-top-head">
+                          <h3 className="card_item-title text-style-3lines">
+                            Distilling LLMs into Efficient Transformers for
+                            Real-World AI
+                          </h3>
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/webinars/distilling-llms"
+                      className="card_item-link expand w-inline-block"
+                    >
+                      <div className="card_item-bottom">
+                        <div className="card_item-info_wrap">
+                          <div className="card_item-info">
+                            <div className="tag text-weight-medium">
+                              webinar
+                            </div>
+                            <div className="card_item-event-date">
+                              <div className="card_item-date text-inline">
+                                Sep 25, 2025
+                              </div>
+                            </div>
+                            <p className="text-style-3lines">
+                              This technical webinar explores how we distilled
+                              the world knowledge of a large language model...
+                            </p>
+                          </div>
+                        </div>
+                        <div className="button is-text">Learn More</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="font-mono text-[0.75rem] opacity-50 mb-4">{post.date}</div>
-              <h4 className="text-xl font-bold mb-4 group-hover:text-medium-green transition-colors">{post.title}</h4>
-              <p className="text-[0.9375rem] opacity-70 mb-8 flex-grow">{post.body}</p>
-              <a href="#" className="text-medium-green font-bold text-[0.875rem] uppercase tracking-wider hover:opacity-70">
-                Learn More →
-              </a>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

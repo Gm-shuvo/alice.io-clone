@@ -1,61 +1,147 @@
-import React from 'react';
+import React from "react";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
-const ProblemStatement = () => {
-  const problems = [
-    {
-      title: "Unintended GenAI Behavior",
-      body: "GenAI can produce harmful or misleading content at a scale traditional security and safety controls can't reliably manage."
-    },
-    {
-      title: "Application-Level Exploitation",
-      body: "Prompt injection, jailbreaks, and model exploits expose applications, agents, and integrations to data leakage or abuse."
-    },
-    {
-      title: "Governance and Compliance Gaps",
-      body: "Abusive, harmful, or non-compliant interactions undermine security and safety policy enforcement and responsible AI governance."
-    },
-    {
-      title: "Reputational and Trust Exposure",
-      body: "A single failure can trigger legal liability, regulatory scrutiny, stalled innovation momentum, and lasting damage to brand trust."
-    }
-  ];
+/* ===================== EYE COMPONENT ===================== */
+const Eye = ({ offset = 0, idPrefix = "eye" }) => {
+  const leftClip = `${idPrefix}-left`;
+  const rightClip = `${idPrefix}-right`;
+
+  const EyeSvg = ({ clipId, pupilShift = 0 }) => (
+    <svg className="eye" viewBox="0 0 26 18" width="26" height="18">
+      <defs>
+        <clipPath id={clipId}>
+          <path d="M12.7864 0C6.90566 0 1.81183 5.83236 0 8.74854C1.98438 11.5957 7.31979 17.2901 12.7864 17.2901C18.253 17.2901 23.6919 11.3541 25.7281 8.38614C23.8645 5.59076 18.6671 0 12.7864 0Z" />
+        </clipPath>
+      </defs>
+
+      <g className="eye-inner">
+        {/* White part of eye */}
+        <path
+          d="M12.7864 0C6.90566 0 1.81183 5.83236 0 8.74854C1.98438 11.5957 7.31979 17.2901 12.7864 17.2901C18.253 17.2901 23.6919 11.3541 25.7281 8.38614C23.8645 5.59076 18.6671 0 12.7864 0Z"
+          fill="white"
+        />
+
+        {/* Pupil */}
+        <g clipPath={`url(#${clipId})`}>
+          <g
+            style={{
+              transform: `translate(${pupilShift}px, 3px)`,
+              transition: "transform 0.15s ease-out",
+            }}
+          >
+            <ellipse cx="13" cy="9" rx="4.4" ry="8.2" fill="#0D0D0D" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  );
 
   return (
-    <section className="bg-blue-black text-white pt-32 pb-20 relative overflow-hidden">
-      {/* Decorative Wavy Line from spec */}
-      <div className="absolute top-0 left-0 w-full h-28 -mt-14 opacity-50 overflow-hidden pointer-events-none">
-        <svg viewBox="0 0 1440 320" className="w-full h-full preserve-aspect-none fill-none stroke-medium-grey stroke-[0.5px]">
-          <path d="M0,160 C320,300 420,0 720,160 C1020,320 1120,20 1440,160" />
-        </svg>
+    <div style={{ display: "flex", gap: "8px" }}>
+      <EyeSvg clipId={leftClip} pupilShift={offset - 3} />
+      <EyeSvg clipId={rightClip} pupilShift={offset + 3} />
+    </div>
+  );
+};
+
+/* ===================== MAIN COMPONENT ===================== */
+const ProblemStatement = () => {
+  return (
+    <section className="section-accountable">
+      <div className="padding-global padding-section-small is-account">
+        <div className="container-large">
+          <div className="accontable_component">
+            {/* Heading */}
+            <div className="section_heading">
+              <div className="heading-eyebrow">
+                The internet is a wonderful place. Mostly.
+              </div>
+              <h2 className="max-width-xlarge">
+                Wherever people and technology meet, powerful tools can be
+                manipulated to do harmful things.{" "}
+                <span className="text-style-italic">
+                  And&nbsp;you’re held accountable.
+                </span>
+              </h2>
+            </div>
+
+            {/* Cards */}
+            <div className="grid_4-col">
+              {[
+                {
+                  title: "Unintended GenAI Behavior",
+                  desc: "GenAI can produce harmful or misleading content at a scale traditional security and safety controls can’t reliably manage.",
+                },
+                {
+                  title: "Application-Level Exploitation",
+                  desc: "Prompt injection, jailbreaks, and model exploits expose applications, agents, and integrations to data leakage or abuse.",
+                },
+                {
+                  title: "Governance and Compliance Gaps",
+                  desc: "Abusive, harmful, or non-compliant interactions undermine security and safety policy enforcement and responsible AI governance.",
+                },
+                {
+                  title: "Reputational and Trust Exposure",
+                  desc: "A single failure can trigger legal liability, regulatory scrutiny, stalled innovation momentum, and lasting damage to brand trust.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="card_item on-blue-dark">
+                  <h4>{item.title}</h4>
+                  <div className="card_divider"></div>
+                  <p className="text-color-secondary-light">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="acountable_bottom-text">
+              <a
+                href="#explainer"
+                className="button w-variant-6b0d1ec3-06ac-c808-569a-90f5fb8ed31d w-button"
+              >
+                Step into GenAI Wonderland
+              </a>
+            </div>
+
+            {/* ===================== EYES ===================== */}
+            {/* Eye Group 01 - Top Left (already good) */}
+            {/* <div className="eyes _01 w-embed" style={{ position: "absolute", top: "22%", left: "12%" }}>
+              <Eye idPrefix="eye1" />
+            </div> */}
+
+            {/* Eye Group 02 - Right Side */}
+            {/* <div className="eyes _02 w-embed" style={{ position: "absolute", top: "28%", right: "15%" }}> */}
+            <Eye idPrefix="eye2" offset={-2} />
+            {/* </div> */}
+
+            {/* Eye Group 03 - Bottom Left */}
+            <div
+              className="eyes _03 w-embed"
+              style={{ position: "absolute", bottom: "28%", left: "18%" }}
+            >
+              <Eye idPrefix="eye3" offset={-4} />
+            </div>
+
+            {/* Eye Group 04 - Bottom Right */}
+            {/* <div className="eyes _04 w-embed" style={{ position: "absolute", bottom: "32%", right: "22%" }}>
+              <Eye idPrefix="eye4" offset={4} />
+            </div> */}
+
+            {/* Eye Group 05 - Bottom Right (further away) */}
+            {/* <div className="eyes _05 w-embed" style={{ position: "absolute", bottom: "25%", right: "8%" }}>
+              <Eye idPrefix="eye5" offset={-1} />
+            </div> */}
+          </div>
+        </div>
       </div>
 
-      <div className="container-large relative z-10">
-        <div className="text-center mb-16">
-          <div className="font-mono text-[0.875rem] text-dark-grey uppercase tracking-widest mb-4">
-            The internet is a wonderful place. Mostly.
-          </div>
-          <h2 className="text-[2.5rem] md:text-[3.5rem] leading-[1.1] max-w-4xl mx-auto">
-            Wherever people and technology meet, powerful tools can be manipulated to do harmful things. <span className="italic opacity-80">And you're held accountable.</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-medium-grey/30">
-          {problems.map((p, idx) => (
-            <div key={idx} className="p-10 border-r border-b lg:border-b-0 border-medium-grey/30 last:border-r-0 hover:bg-white/5 transition-colors group">
-              <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-8 group-hover:border-white transition-colors">
-                {idx + 1}
-              </div>
-              <h4 className="text-xl font-bold mb-4">{p.title}</h4>
-              <p className="text-white/60 text-[0.9375rem] leading-relaxed">{p.body}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
-          <a href="#" className="inline-flex items-center gap-3 text-white text-xl hover:gap-5 transition-all">
-            Step into GenAI Wonderland <span className="text-2xl">→</span>
-          </a>
-        </div>
+      {/* Lottie Background */}
+      <div className="acountable_bg-image is-bottom pb-2">
+        <DotLottiePlayer
+          src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695690f2692f96f7d1012aa3_027d2687b8bf89b67e1a18d4b0b01baf_RABIT%20IN%20BOAT.lottie"
+          autoplay
+          loop
+        />
       </div>
     </section>
   );
