@@ -7,8 +7,7 @@ const BlogGrid = () => {
         <div className="padding-section-medium">
           <div className="padding-global">
             <div className="container-large">
-              <div className="news-cards_wrapper relative">
-                <div className="absolute -right-2 -bottom-2 w-full h-[80%] border-black border border-t-0 border-l-0 pointer-events-none z-0" />
+              <div className="news-cards_wrapper">
 
                 {/* Heading */}
                 <div className="text-align-center">
