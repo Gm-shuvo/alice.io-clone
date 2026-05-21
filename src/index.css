@@ -938,10 +938,11 @@ figure {
 }
 
 .container-large.resc_cont-centered {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  display: flex
+  width: 100%;
+  max-width: 80rem;
 }
 
 .container-large.gated-mobile {
@@ -1819,9 +1820,7 @@ figure {
 .intell_component {
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
-  border-style: solid;
-  border-width: .5px .5px var(--spacing---borders--primary);
-  border-color: var(--borders--primary);
+  border: 0.5px solid var(--borders--primary);
   background-color: var(--backgrounds--primary);
   text-align: center;
   flex-flow: column;
@@ -1829,7 +1828,7 @@ figure {
   align-items: center;
   padding: 2.5rem;
   display: flex;
-  position: relative
+  position: relative;
 }
 
 .intell_image {
@@ -3216,9 +3215,13 @@ figure {
   }
 
   .container-large {
-    margin-left: 236px;
-    padding-top: 0;
-    overflow: visible
+    width: 100%;
+    max-width: 85.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: visible;
   }
 
   .container-large.resc_cont-centered {
@@ -3232,13 +3235,13 @@ figure {
 
   .container-large.is-platform-tag {
     padding-top: 2.5rem;
-    padding-bottom: 2.5rem
+    padding-bottom: 2.5rem;
   }
 
   .container-large.regs-tabs-wrap {
     background-color: var(--yellow);
     box-shadow: 6px 9px 0 0 var(--blue-black);
-    padding: 1.125rem
+    padding: 1.125rem;
   }
 
   .padding-global.padding-section-medium {
@@ -6261,8 +6264,19 @@ figure {
   }
 
   .news-cards_wrapper {
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    gap: 3.375rem;
+
+    border: 0.5px solid var(--borders--primary);
+
+    box-shadow: 8px 8px 0 0 var(--borders--primary);
+
+    background: var(--background--primary);
+
+    margin-right: 8px;
+    margin-bottom: 8px;
   }
 
   .section-404 {
@@ -6934,7 +6948,7 @@ figure {
   }
 
   .max-width-xlarge {
-    font-size: var(--_typography---h1--font-size)
+    font-size: var(--typography---h1--font-size)
   }
 
   ._2-col_component {
@@ -8354,8 +8368,9 @@ figure {
 }
 
 @font-face {
-  font-family: "Haas Text Mono";
-  src: url("/fonts/haas-mono-regular.woff2") format("woff2");
+  font-family: "Romie";
+  src: url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/69071249a51b001394ea22cf_Romie-Regular.woff2") format("woff2"),
+    url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/692e7f7799728ac9ea262367_Romie-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8363,7 +8378,24 @@ figure {
 
 @font-face {
   font-family: "Romie";
-  src: url("/fonts/romie-regular.woff2") format("woff2");
+  src: url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/692e7f814c30f46dd5d9dd32_Romie-Italic.woff2") format("woff2"),
+    url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/692e7f875443c256a626f721_Romie-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haas Text";
+  src: url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/692e84c0da38b0f3d5e01bdc_NeueHaasGrotText-55Roman-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haas Text Mono";
+  src: url("https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/692e7eeaae649bced8aaf87e_NeueHaasGroteskTextMono-55Roman_trial.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
