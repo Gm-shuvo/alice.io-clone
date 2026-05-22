@@ -7,6 +7,24 @@ const Footer = () => {
         <style>{`
         /* ─── Mobile Responsive Footer ───────────────────────────── */
 
+        .footer_lottie {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        .footer_lottie canvas,
+        .footer_lottie svg {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        /* Large screens: prevent footer lottie from shrinking */
+        @media (min-width: 992px) {
+          .footer_lottie {
+            flex-shrink: 0;
+          }
+        }
+
         /* Tablet: 2-column grid */
         @media (max-width: 991px) {
           .footer_component {
@@ -367,13 +385,15 @@ const Footer = () => {
         </div>
 
         {/* Footer Lottie Animation */}
-        <DotLottieReact
-        src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695690f207b1e3b583581f37_7c331b1540be05740c098ee285af33a0_FOOTER.lottie"
-        autoplay
-        loop
-      />
+        <div className="w-full flex flex-1 justify-center overflow-hidden">
+          <DotLottieReact
+            src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695690f207b1e3b583581f37_7c331b1540be05740c098ee285af33a0_FOOTER.lottie"
+            autoplay
+            loop
+            className="footer_lottie"
+          />
+        </div>
       </footer>
-
     </>
   );
 };
