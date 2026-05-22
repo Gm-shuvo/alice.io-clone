@@ -1731,13 +1731,14 @@ body {
     position: relative
   }
 
-  .section-accountable {
+.section-accountable {
     z-index: 1;
     background-color: var(--blue-black);
     margin-top: -.25rem;
-    overflow: hidden
+    overflow: hidden;
+    height: 1470px;
   }
-
+  
   .accontable_component {
     color: var(--texts-on-dark--tertiary);
     position: relative
@@ -5986,10 +5987,6 @@ body {
 
     .card_icon.is-large {
       height: 6rem
-    }
-
-    .section-accountable {
-      background-position: 50% 88%
     }
 
     .section-testimonials {
