@@ -1,6 +1,4 @@
-import { DotLottiePlayer } from "@dotlottie/react-player";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const navItems = [
   {
