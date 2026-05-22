@@ -1735,7 +1735,8 @@ body {
     z-index: 1;
     background-color: var(--blue-black);
     margin-top: -.25rem;
-    overflow: hidden
+    overflow: hidden;
+    height: 1470px;
   }
 
   .accontable_component {
@@ -1751,10 +1752,17 @@ body {
     z-index: 0
   }
 
-  .acountable_bg-image.is-bottom {
+  /* .acountable_bg-image.is-bottom {
     position: relative;
-    bottom: -7rem
+    bottom: -5rem
   }
+
+  @media (max-width: 991px) {
+    .acountable_bg-image.is-bottom {
+      bottom: -7rem
+    }
+    
+  } */
 
   .grid_4-col {
     margin-top: var(--spacing---heading-content-large);
@@ -5986,10 +5994,6 @@ body {
 
     .card_icon.is-large {
       height: 6rem
-    }
-
-    .section-accountable {
-      background-position: 50% 88%
     }
 
     .section-testimonials {

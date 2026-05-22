@@ -46,7 +46,7 @@ const Eye = ({ offset = 0, idPrefix = "eye" }) => {
 /* ===================== MAIN COMPONENT ===================== */
 const ProblemStatement = () => {
   return (
-    <section className="section-accountable">
+    <section className="section-accountable relative">
       <div className="padding-global padding-section-small is-account">
         <div className="container mx-auto">
           <div className="accontable_component">
@@ -135,7 +135,7 @@ const ProblemStatement = () => {
       </div>
 
       {/* Lottie Background */}
-      <div className="acountable_bg-image is-bottom pb-2">
+      <div className="absolute left-0 w-full h-auto pointer-events-none">
         <DotLottieReact
           src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695690f2692f96f7d1012aa3_027d2687b8bf89b67e1a18d4b0b01baf_RABIT%20IN%20BOAT.lottie"
           autoplay
