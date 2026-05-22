@@ -1752,10 +1752,17 @@ body {
     z-index: 0
   }
 
-  .acountable_bg-image.is-bottom {
+  /* .acountable_bg-image.is-bottom {
     position: relative;
-    bottom: -7rem
+    bottom: -5rem
   }
+
+  @media (max-width: 991px) {
+    .acountable_bg-image.is-bottom {
+      bottom: -7rem
+    }
+    
+  } */
 
   .grid_4-col {
     margin-top: var(--spacing---heading-content-large);
