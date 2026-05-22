@@ -6,7 +6,7 @@ const RabbitHole = () => {
     <section className="section-intell">
       <div className="padding-global padding-section-medium">
         <div className="container-large z-50">
-          <div className="relative inline-block">
+          <div className="relative">
             <div className="absolute top-2 left-2 w-full h-full border border-(--borders--primary) bg-transparent pointer-events-none z-0" />
             <div className="intell_component">
               {/* <div className="absolute -right-2 -bottom-2 w-full h-full border-black border pointer-events-none z-0" /> */}

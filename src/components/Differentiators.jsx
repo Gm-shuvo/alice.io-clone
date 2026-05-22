@@ -6,9 +6,9 @@ const Differentiators = () => {
 
 
   return (
-   <section className="acountable_bg-image is-top md:pb-20">
-  <InteractiveHero />
-</section>
+    <section className="acountable_bg-image is-top md:pb-20">
+      <InteractiveHero />
+    </section>
   );
 };
 

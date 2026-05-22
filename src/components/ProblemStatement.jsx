@@ -48,7 +48,7 @@ const Eye = ({ offset = 0, idPrefix = "eye" }) => {
 const ProblemStatement = () => {
   return (
     <section className="section-accountable">
-      <div className="padding-global padding-section-small is-account">
+      <div className=" padding-section-small is-account px-[8rem] mt-20">
         <div className="container-large">
           <div className="accontable_component">
             {/* Heading */}
