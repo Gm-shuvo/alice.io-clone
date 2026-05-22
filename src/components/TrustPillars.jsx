@@ -1,4 +1,4 @@
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
 
 const AlicePeaceOfMind = () => {
@@ -18,7 +18,7 @@ const AlicePeaceOfMind = () => {
               <div className="card_item">
                 <div className="card_top">
                   <div className="card_icon is-large">
-                    <DotLottiePlayer
+                    <DotLottieReact
                       src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695a5c4711c73bc0524db973_8abd1dac4a727e263b5d06dc05b1c053_potion.lottie"
                       autoplay
                       loop
@@ -41,7 +41,7 @@ const AlicePeaceOfMind = () => {
               >
                 <div className="card_top">
                   <div className="card_icon is-large">
-                    <DotLottiePlayer
+                    <DotLottieReact
                       src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695bbddc81d4d9b710861037_11270a5754ba156f3f5b0dcaee6cee98_shield.lottie"
                       autoplay
                       loop
@@ -64,7 +64,7 @@ const AlicePeaceOfMind = () => {
               >
                 <div className="card_top">
                   <div className="card_icon is-large">
-                    <DotLottiePlayer
+                    <DotLottieReact
                       src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695a5c47444a667aa116af1c_ee63e791c01d963d6606bd9789f5d0c6_keyhole.lottie"
                       autoplay
                       loop

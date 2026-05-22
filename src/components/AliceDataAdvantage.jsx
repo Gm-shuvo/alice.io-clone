@@ -1,4 +1,4 @@
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
 
 const AliceDataAdvantage = () => {
@@ -11,7 +11,7 @@ const AliceDataAdvantage = () => {
           <div className="container-large">
             <div className="advantage_component">
               <div>
-                <DotLottiePlayer
+                <DotLottieReact
                   src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695f3e910e92ff5b35ff898c_advantage-show.lottie"
                   autoplay
                   loop

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -280,7 +280,7 @@ const Testimonials = () => {
               {cards.map((card, index) => (
                 <div key={index} className="card_item stroke-shadow">
                   <div className="card_top">
-                    <DotLottiePlayer
+                    <DotLottieReact
                       src={card.lottie}
                       autoplay
                       loop

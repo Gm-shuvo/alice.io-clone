@@ -1,5 +1,5 @@
 
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const InteractiveHero = () => {
   return (
@@ -7,12 +7,12 @@ const InteractiveHero = () => {
       {/* Lottie Animation */}
       <div className="sm:mb-13!">
 
-      <DotLottiePlayer
+      <DotLottieReact
         src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695f42c2b37d7d8a59c5d709_interactive-home.json"
         autoplay
         loop
-        mode="normal"
-        background="transparent"
+        mode="forward"
+        backgroundColor="transparent"
         style={{
           width: "100%",
           height: "auto",

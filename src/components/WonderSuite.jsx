@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const WonderSuite = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -118,7 +118,7 @@ const WonderSuite = () => {
                     >
                       <div className="intro_tabs-link-heading">
                         <div className="icon-medium">
-                          <DotLottiePlayer
+                          <DotLottieReact
                             key={`${tab.title}-${isActive}`}
                             src={tab.iconLottieSrc}
                             autoplay={isActive}

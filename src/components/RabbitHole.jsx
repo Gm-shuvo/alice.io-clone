@@ -1,4 +1,4 @@
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
 
 const RabbitHole = () => {
@@ -29,7 +29,7 @@ const RabbitHole = () => {
               <div className="flex flex-col items-center justify-center gap-6">
                 {/* Lottie Animation */}
                 <div className="sm:w-[350px]!">
-                  <DotLottiePlayer
+                  <DotLottieReact
                     src="https://cdn.prod.website-files.com/69005ca0f0832195cbc1370c/695f9fbeb32bc160a7cc70c7_rabit%20with%20key.lottie"
                     autoplay
                     loop
